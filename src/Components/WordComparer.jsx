@@ -35,17 +35,32 @@ class Comparison extends Component {
 
   handlePrimaryClick = () => {
     const { primaryWord, secondaryWord } = this.state;
-
+    //needs a prevent default
     if (anagramDetector(primaryWord[0], secondaryWord[0]) === true) {
       this.setState({ isAnagram: true }); //setState is always one async cycle late
     } else {
-      console.log("this word is not a anagram!");
+      console.log("this word is not a Anagram!");
+    }
+  };
+
+  handleSecondaryClick = () => {
+    //needs a prevent default
+    const { primaryWord, secondaryWord } = this.state;
+    if (palindromeDetector(primaryWord[0], secondaryWord[0]) === true) {
+      console.log("this word is a palindrome!");
+    } else {
+      console.log("this word is not a Palindrome!");
     }
   };
 
   render() {
-    const { isAnagram } = this.state;
-    if (isAnagram) return <header>It is a Anagram!</header>;
+    const { isAnagram, primaryWord, secondaryWord } = this.state;
+    if (isAnagram)
+      return (
+        <header>
+          {primaryWord} is an Anagram of {secondaryWord}
+        </header>
+      );
 
     return (
       <div className="container my-5">
@@ -58,7 +73,10 @@ class Comparison extends Component {
                     className="form-control form-control-lg mx-3"
                     onChange={this.handlePrimaryInput}
                   />
-                  <Button className="compare" onClick={this.handlePrimaryClick}>
+                  <Button
+                    className="anagram check"
+                    onClick={this.handlePrimaryClick}
+                  >
                     Is it an anagram?
                   </Button>
                 </form>
@@ -68,7 +86,12 @@ class Comparison extends Component {
                     className="form-control form-control-lg mx-3"
                     onChange={this.handleSecondaryInput}
                   />
-                  <Button>Is it an palindrome</Button>
+                  <Button
+                    className="palindrome check"
+                    onClick={this.handleSecondaryClick}
+                  >
+                    Is it an palindrome?
+                  </Button>
                 </form>
               </div>
             </div>

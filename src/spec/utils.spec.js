@@ -19,18 +19,19 @@ xdescribe("anagramDetector", () => {
   });
 });
 
-xdescribe("palindromeDetector", () => {
+describe("palindromeDetector", () => {
   it("will return false if two strings doesn't have the same length", () => {
     expect(palindromeDetector("moth", "sitter")).to.equal(false);
     expect(palindromeDetector("hello", "testing")).to.equal(false);
     expect(palindromeDetector("world", "five")).to.equal(false);
   });
+
   it("will return true if two strings are a palindrome of each other", () => {
     expect(palindromeDetector("dad", "dad")).to.equal(true);
     expect(palindromeDetector("civic", "civic")).to.equal(true);
     expect(palindromeDetector("mum", "mum")).to.equal(true);
   });
-  xit("will return false if two strings are not a palindrome of each other", () => {
+  it("will return false if two strings are not a palindrome of each other", () => {
     expect(palindromeDetector("mother", "father")).to.equal(false);
     expect(palindromeDetector("civil", "civil")).to.equal(false);
     expect(palindromeDetector("hello", "world")).to.equal(false);

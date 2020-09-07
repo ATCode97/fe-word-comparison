@@ -20,15 +20,8 @@ function palindromeDetector(str1, str2) {
     return false;
   }
 
-  let rStr1 = str1.split().reverse().join();
-  let rStr2 = str2.split().reverse().join();
-
-  // const arr1 = [];
-  // const arr2 = [];
-
-  // arr1.push(rStr1);
-
-  // console.log(str1[0].split(), "<---");
+  let rStr1 = str1.split("").reverse().join("");
+  let rStr2 = str2.split("").reverse().join("");
 
   if (rStr1 !== str2 || rStr2 !== str1) {
     return false;
