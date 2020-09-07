@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import { anagramDetector, palindromeDetector } from "../spec/utils";
+import * as api from "../spec/api";
 
 class Comparison extends Component {
   state = {
@@ -12,11 +13,12 @@ class Comparison extends Component {
 
   //1. input box 1 needs to set state of word one with event.target.value (done)
   //2. input box 2 needs to set state of word 2 with event.target.value (done)
-  //3. Button 1 has a onclick that will trigger the test for anagram util function, needs a prevent default
-  //4. Button 2 has a onClick that will trigger the test for palindrome util function,  needs a prevent default
+  //3. Button 1 has a onclick that will trigger the test for anagram util function (done)
+  //4. Button 2 has a onClick that will trigger the test for palindrome util function (done)
+  //4a. BOTH BUTTON NEED TO PREVENT DEFAULT SO THE FUNCTION DOESN'T RUN WITH OUT INPUT!!!!!!!!!
   //5. Both of the utils functions will use the value in state as arguments (done)
-  //6. Somehow display the result???? Using conditional rendering, if(isAnagram===true), render(true page)?????? (todo)
-  //7 Figure out the POST request? to work somehow
+  //6. Somehow display the result???? Using conditional rendering, if(isAnagram===true), render(true page) (Done)
+  //7 Figure out the POST request? to work somehow??????? <----- HEAd scratcher here god knows
 
   handlePrimaryInput = (event) => {
     //this will set the state of the primary word key
@@ -42,6 +44,11 @@ class Comparison extends Component {
     } else {
       console.log("this word is not a Anagram!");
     }
+
+    const newComparison = {
+      primaryWord: primaryWord[0],
+      secondaryWord: secondaryWord[0],
+    };
   };
 
   handleSecondaryClick = () => {
