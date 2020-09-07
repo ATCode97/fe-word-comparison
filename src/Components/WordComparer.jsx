@@ -6,19 +6,20 @@ class Comparison extends Component {
   state = {
     primaryWord: "",
     secondaryWord: "",
+    isAnagram: false,
   };
 
-  //1. input box 1 needs to set state of word one with event.target.value
-  //2. input box 2 needs to set state of word 2 with event.target.value
+  //1. input box 1 needs to set state of word one with event.target.value (done)
+  //2. input box 2 needs to set state of word 2 with event.target.value (done)
   //3. Button 1 has a onclick that will trigger the test for anagram util function, needs a prevent default
   //4. Button 2 has a onClick that will trigger the test for palindrome util function,  needs a prevent default
-  //5. Both of the utils functions will use the value in state as arguments
-  //6. Somehow display the result???? Using conditional rendering??????
+  //5. Both of the utils functions will use the value in state as arguments (done)
+  //6. Somehow display the result???? Using conditional rendering, if(isAnagram===true), render(true page)?????? (todo)
   //7 Figure out the POST request? to work somehow
 
   handlePrimaryInput = (event) => {
     //this will set the state of the primary word key
-    // console.dir(event.target.value);
+
     this.setState({
       primaryWord: [event.target.value],
     });
@@ -32,17 +33,20 @@ class Comparison extends Component {
 
   //anagram function does work but need to be string input by primaryWord[0]
 
-  handleClick = () => {
+  handlePrimaryClick = () => {
     const { primaryWord, secondaryWord } = this.state;
 
     if (anagramDetector(primaryWord[0], secondaryWord[0]) === true) {
-      console.log("this word is a anagram!");
+      this.setState({ isAnagram: true }); //setState is always one async cycle late
     } else {
       console.log("this word is not a anagram!");
     }
   };
 
   render() {
+    const { isAnagram } = this.state;
+    if (isAnagram) return <header>It is a Anagram!</header>;
+
     return (
       <div className="container my-5">
         <div className="row">
@@ -54,6 +58,9 @@ class Comparison extends Component {
                     className="form-control form-control-lg mx-3"
                     onChange={this.handlePrimaryInput}
                   />
+                  <Button className="compare" onClick={this.handlePrimaryClick}>
+                    Is it an anagram?
+                  </Button>
                 </form>
 
                 <form className="form-inline mb-4">
@@ -61,13 +68,8 @@ class Comparison extends Component {
                     className="form-control form-control-lg mx-3"
                     onChange={this.handleSecondaryInput}
                   />
+                  <Button>Is it an palindrome</Button>
                 </form>
-              </div>
-
-              <div className="col-lg-2 align-self-center">
-                <Button className="compare" onClick={this.handleClick}>
-                  Is it an anagram?
-                </Button>
               </div>
             </div>
           </div>
