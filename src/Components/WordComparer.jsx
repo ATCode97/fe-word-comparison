@@ -7,6 +7,7 @@ class Comparison extends Component {
     primaryWord: "",
     secondaryWord: "",
     isAnagram: false,
+    isPalindrome: false,
   };
 
   //1. input box 1 needs to set state of word one with event.target.value (done)
@@ -47,18 +48,25 @@ class Comparison extends Component {
     //needs a prevent default
     const { primaryWord, secondaryWord } = this.state;
     if (palindromeDetector(primaryWord[0], secondaryWord[0]) === true) {
-      console.log("this word is a palindrome!");
+      this.setState({ isPalindrome: true });
     } else {
       console.log("this word is not a Palindrome!");
     }
   };
 
   render() {
-    const { isAnagram, primaryWord, secondaryWord } = this.state;
+    const { isAnagram, primaryWord, secondaryWord, isPalindrome } = this.state;
     if (isAnagram)
       return (
         <header>
           {primaryWord} is an Anagram of {secondaryWord}
+        </header>
+      );
+
+    if (isPalindrome)
+      return (
+        <header>
+          {primaryWord} is an Palindrome of {secondaryWord}
         </header>
       );
 
