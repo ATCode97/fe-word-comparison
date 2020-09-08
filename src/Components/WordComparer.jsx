@@ -18,7 +18,7 @@ class Comparison extends Component {
   //4a. BOTH BUTTON NEED TO PREVENT DEFAULT SO THE FUNCTION DOESN'T RUN WITH OUT INPUT!!!!!!!!!
   //5. Both of the utils functions will use the value in state as arguments (done)
   //6. Somehow display the result???? Using conditional rendering, if(isAnagram===true), render(true page) (Done)
-  //7 Figure out the POST request? to work somehow??????? <----- HEAd scratcher here god knows
+  //7 Figure out the POST request? to work somehow??????? <----- attached to the buttons (done ish)
 
   handlePrimaryInput = (event) => {
     //this will set the state of the primary word key
@@ -46,9 +46,11 @@ class Comparison extends Component {
     }
 
     const newComparison = {
-      primaryWord: primaryWord[0],
-      secondaryWord: secondaryWord[0],
+      primary_words: primaryWord[0],
+      secondary_words: secondaryWord[0],
     };
+
+    api.postNewComparison(newComparison);
   };
 
   handleSecondaryClick = () => {
@@ -59,6 +61,13 @@ class Comparison extends Component {
     } else {
       console.log("this word is not a Palindrome!");
     }
+
+    const newComparison = {
+      primary_words: primaryWord[0],
+      secondary_words: secondaryWord[0],
+    };
+
+    api.postNewComparison(newComparison);
   };
 
   render() {

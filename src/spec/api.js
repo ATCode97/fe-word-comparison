@@ -6,7 +6,7 @@ const request = axios.create({
 
 export const postNewComparison = (newComparison) => {
   return request.post(`/words`, newComparison).then(({ data }) => {
-    return data.words;
+    return data.wordsObj;
   });
 };
 

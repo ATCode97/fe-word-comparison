@@ -1,0 +1,68 @@
+.toolbar {
+  width: 100%;
+  position: fixed;
+  background: darkgray;
+  height: 56px;
+  top: 0;
+  left: 0;
+  font-family: "Courier New";
+  z-index: 9999;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar_logo {
+  margin-left: 1rem;
+}
+
+.toolbar_logo a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.toolbar_navigation {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.toolbar-nav-items a {
+  color: whitesmoke;
+  text-decoration: white;
+}
+
+.toolbar-nav-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.toolbar-nav-items li {
+  padding: 0 0.5rem;
+}
+
+.toolbar-nav-items a:hover.toolbar,
+.toolbar-nav-items a:active {
+  color: #ff00ea;
+}
+
+@media (max-width: 768px) {
+  .toolbar-nav-items {
+    display: none;
+  }
+}
+/* Prevents the nav items being shown when screen is below 768px. Will be shown on desktop but not mobile */
+
+@media (min-width: 769px) {
+  .toggle-toolbar-button {
+    display: none;
+  }
+  .toolbar_logo {
+    margin-left: 0;
+  }
+}
