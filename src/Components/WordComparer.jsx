@@ -35,11 +35,9 @@ class Comparison extends Component {
     });
   };
 
-  //anagram function does work but need to be string input by primaryWord[0]
-
   handlePrimaryClick = () => {
     const { primaryWord, secondaryWord } = this.state;
-    //needs a prevent default
+
     if (primaryWord && secondaryWord) {
       if (anagramDetector(primaryWord[0], secondaryWord[0]) === true) {
         this.setState({ isAnagram: true });
@@ -55,6 +53,16 @@ class Comparison extends Component {
       api.postNewComparison(newComparison);
     }
   };
+
+  validate(e) {
+    const regex = /[A-Za-z]/;
+    const chars = e.target.value.split("");
+    const char = chars.pop();
+    if (!regex.test(char)) {
+      e.target.value = chars.join("");
+      alert(`${char} is not a valid character.`);
+    }
+  }
 
   handleSecondaryClick = () => {
     //needs a prevent default
@@ -81,42 +89,42 @@ class Comparison extends Component {
 
     if (isAnagram)
       return (
-        <header style={{ textAlign: "center" }}>
+        <h2 style={{ textAlign: "center" }}>
           <br></br>
           <br></br>
           <br></br>
           <br></br>
           {primaryWord} is an Anagram of {secondaryWord}
-        </header>
+        </h2>
       );
 
     if (isAnagram === false)
       return (
-        <header style={{ textAlign: "center" }}>
+        <h2 style={{ textAlign: "center" }}>
           <br></br>
           <br></br>
           <br></br>
           <br></br>
           {primaryWord} is an not Anagram of {secondaryWord}
-        </header>
+        </h2>
       );
 
     if (isPalindrome)
       return (
-        <header>
+        <h2 style={{ textAlign: "center" }}>
           {primaryWord} is an Palindrome of {secondaryWord}
-        </header>
+        </h2>
       );
 
     if (isPalindrome === false)
       return (
-        <header>
+        <h2 style={{ textAlign: "center" }}>
           <br></br>
           <br></br>
           <br></br>
           <br></br>
           {primaryWord} is not an Palindrome of {secondaryWord}
-        </header>
+        </h2>
       );
 
     if (isAnagram === null && isPalindrome === null)
@@ -129,15 +137,19 @@ class Comparison extends Component {
                   <br></br>
                   <br></br>
                   <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
+                  <h3>
+                    Input two words you want to compare to each other to find
+                    out whether they are anagram or palindrome of each other
+                  </h3>
+
                   <br></br>
                   <br></br>
                   <form className="form-inline mb-4">
                     <input
                       className="form-control form-control-lg mx-3"
+                      type="text"
                       onChange={this.handlePrimaryInput}
+                      onKeyPress={(e) => this.validate(e)}
                     />
                     <Button
                       className="anagram check"
@@ -150,7 +162,9 @@ class Comparison extends Component {
                   <form className="form-inline mb-4">
                     <input
                       className="form-control form-control-lg mx-3"
+                      type="text"
                       onChange={this.handleSecondaryInput}
+                      onKeyPress={(e) => this.validate(e)}
                     />
                     <Button
                       className="palindrome check"

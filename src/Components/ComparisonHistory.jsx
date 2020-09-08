@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import "./comparisonhistory.css";
 import { convertTime } from "../spec/utils";
-import { Table, DropdownButton, Dropdown } from "react-bootstrap";
+import { DropdownButton, Dropdown } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 import * as api from "../spec/api";
 
 //1. get table from css bootstrap, needs css for placement (done-ish)
@@ -35,7 +37,7 @@ class ComparisonHistory extends Component {
         <br></br>
         <br></br>
 
-        <Table striped bordered hover variant="dark">
+        <Table striped bordered hover size="md">
           <thead>
             <tr>
               <th>#</th>
