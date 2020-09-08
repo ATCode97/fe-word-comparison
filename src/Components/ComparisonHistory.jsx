@@ -1,4 +1,5 @@
 import React from "react";
+import { Table } from "react-bootstrap";
 
 //1. get table from css bootstrap
 //2. get request to get all of the comparison data from db
@@ -9,7 +10,37 @@ import React from "react";
 const ComparisonHistory = () => {
   return (
     <div>
-      <h1>This is the HIstory Page!</h1>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Primary Words</th>
+            <th>Secondary Words</th>
+            <th>Compared At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+        </tbody>
+      </Table>
     </div>
   );
 };

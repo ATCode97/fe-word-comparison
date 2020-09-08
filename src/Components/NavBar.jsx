@@ -16,7 +16,7 @@ const NavBar = (props) => {
         <div className="toolbar-nav-items">
           <ul>
             <li>
-              <a href="/history">history</a>
+              <a href="/history">History</a>
             </li>
           </ul>
         </div>

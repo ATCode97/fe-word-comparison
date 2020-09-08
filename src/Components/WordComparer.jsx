@@ -92,6 +92,14 @@ class Comparison extends Component {
           <div className="col-lg-6 mx-auto">
             <div className="row">
               <div className="col-lg-10 ">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <form className="form-inline mb-4">
                   <input
                     className="form-control form-control-lg mx-3"

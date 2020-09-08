@@ -10,15 +10,6 @@ function App() {
     <div className="App">
       <NavBar />
       <main>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
         <Router>
           <Comparison path="/" />
           <ComparisonHistory path="/history" />
