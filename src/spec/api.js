@@ -5,9 +5,13 @@ const request = axios.create({
 });
 
 export const postNewComparison = (newComparison) => {
-  return request.post(`/words`, newComparison).then(({ data }) => {
+  return request.post("/words", newComparison).then(({ data }) => {
     return data.wordsObj;
   });
 };
 
-export const getComparisons = () => {};
+export const getComparisons = () => {
+  return request.get("/words").then(({ data: { wordsObj } }) => {
+    console.log(wordsObj);
+  });
+};

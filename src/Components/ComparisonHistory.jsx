@@ -1,8 +1,9 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import * as api from "../spec/api";
 
-//1. get table from css bootstrap
-//2. get request to get all of the comparison data from db
+//1. get table from css bootstrap, needs css for placement
+//2. get request to get all of the comparison data from db, function made
 //3. add those data into the comparison table
 //4. sort by time as well
 //5 sort out that time stamp data somehow.
