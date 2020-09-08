@@ -10,9 +10,10 @@ export const postNewComparison = (newComparison) => {
   });
 };
 
-export const getComparisons = () => {
-  return request.get("/words").then(({ data: { wordsObj } }) => {
-    // console.log(wordsObj);
-    return wordsObj;
-  });
+export const getComparisons = (order) => {
+  return request
+    .get("/words", { params: { order } })
+    .then(({ data: { wordsObj } }) => {
+      return wordsObj;
+    });
 };

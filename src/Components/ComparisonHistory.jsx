@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Table } from "react-bootstrap";
+import { Table, DropdownButton, Dropdown } from "react-bootstrap";
 import * as api from "../spec/api";
 
 //1. get table from css bootstrap, needs css for placement (done-ish)
 //2. get request to get all of the comparison data from db(done)
 //3. set state with the data from the api (done)
 //4. add those data into the comparison table (done)
-//5. sort by time as well <---- ??????
+//5. sort by most recent and oldest comparisons. (done)
 //6 sort out that time stamp data somehow <------ ????????????
 
 class ComparisonHistory extends Component {
@@ -18,8 +18,8 @@ class ComparisonHistory extends Component {
     this.fetchComparisons();
   }
 
-  fetchComparisons = () => {
-    api.getComparisons().then((comparisons) => {
+  fetchComparisons = (order) => {
+    api.getComparisons(order).then((comparisons) => {
       console.log(comparisons);
       this.setState({ comparisons });
     });
@@ -33,10 +33,6 @@ class ComparisonHistory extends Component {
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
 
         <Table striped bordered hover variant="dark">
           <thead>
@@ -44,7 +40,23 @@ class ComparisonHistory extends Component {
               <th>#</th>
               <th>Primary Words</th>
               <th>Secondary Words</th>
-              <th>Compared At</th>
+              <th>
+                Compared At
+                <DropdownButton id="dropdown-item-button" title="order">
+                  <Dropdown.Item
+                    as="button"
+                    onClick={() => this.fetchComparisons()}
+                  >
+                    Most Recent
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    as="button"
+                    onClick={() => this.fetchComparisons("asc")}
+                  >
+                    Oldest
+                  </Dropdown.Item>
+                </DropdownButton>
+              </th>
             </tr>
           </thead>
           <tbody>
