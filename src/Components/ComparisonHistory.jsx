@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { convertTime } from "../spec/utils";
 import { Table, DropdownButton, Dropdown } from "react-bootstrap";
 import * as api from "../spec/api";
 
@@ -72,7 +73,7 @@ class ComparisonHistory extends Component {
                     <td>{wordComparison_id}</td>
                     <td>{primary_words}</td>
                     <td>{secondary_words}</td>
-                    <td>{compared_at}</td>
+                    <td>{convertTime(compared_at)}</td>
                   </tr>
                 );
               }

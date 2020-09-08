@@ -31,4 +31,11 @@ function palindromeDetector(str1, str2) {
   }
 }
 
-module.exports = { anagramDetector, palindromeDetector };
+const convertTime = (inputTime) => {
+  let date = inputTime.substr(0, 10);
+  let time = inputTime.substr(11, 8);
+  console.log(`${date}, ${time}`);
+  return `${date}, ${time}`;
+};
+
+module.exports = { anagramDetector, palindromeDetector, convertTime };

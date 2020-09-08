@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { anagramDetector, palindromeDetector } = require("./utils");
+const { anagramDetector, palindromeDetector, convertTime } = require("./utils");
 
 xdescribe("anagramDetector", () => {
   it("will compare two strings, and return true if they have the same length", () => {
@@ -19,7 +19,7 @@ xdescribe("anagramDetector", () => {
   });
 });
 
-describe("palindromeDetector", () => {
+xdescribe("palindromeDetector", () => {
   it("will return false if two strings doesn't have the same length", () => {
     expect(palindromeDetector("moth", "sitter")).to.equal(false);
     expect(palindromeDetector("hello", "testing")).to.equal(false);
@@ -35,5 +35,13 @@ describe("palindromeDetector", () => {
     expect(palindromeDetector("mother", "father")).to.equal(false);
     expect(palindromeDetector("civil", "civil")).to.equal(false);
     expect(palindromeDetector("hello", "world")).to.equal(false);
+  });
+});
+
+describe("convertTime", () => {
+  it("will convert date string to normal", () => {
+    expect(convertTime("2020-09-08T14:16:56.208Z")).to.eql(
+      "2020-09-08, 14:16:56"
+    );
   });
 });
