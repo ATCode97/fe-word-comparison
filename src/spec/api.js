@@ -12,6 +12,7 @@ export const postNewComparison = (newComparison) => {
 
 export const getComparisons = () => {
   return request.get("/words").then(({ data: { wordsObj } }) => {
-    console.log(wordsObj);
+    // console.log(wordsObj);
+    return wordsObj;
   });
 };
