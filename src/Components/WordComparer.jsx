@@ -15,10 +15,11 @@ class Comparison extends Component {
   //2. input box 2 needs to set state of word 2 with event.target.value (done)
   //3. Button 1 has a onclick that will trigger the test for anagram util function (done)
   //4. Button 2 has a onClick that will trigger the test for palindrome util function (done)
-  //4a. BOTH BUTTON NEED TO PREVENT DEFAULT SO THE FUNCTION DOESN'T RUN WITH OUT INPUT!!!!!!!!!
+  //4a. Both buttons needs conditional to stop button from triggering with out input
   //5. Both of the utils functions will use the value in state as arguments (done)
-  //6. Display the result- Using conditional rendering, if(isAnagram===true), render header <----- css, need to center the result
-  //7. Figure out the POST request? to work somehow??????? <----- attached to the buttons (done ish)
+  //6. Display the result, using conditional rendering, if(isAnagram===true), render header <----- css, need to center the result
+  //7. Made post request as a api function (done ish)
+  //8. Attach api post function to both button so it would trigger for both comparison buttons
 
   handlePrimaryInput = (event) => {
     //this will set the state of the primary word key
@@ -162,9 +163,6 @@ class Comparison extends Component {
               </div>
             </div>
           </div>
-          <br></br>
-          <br></br>
-          <br></br>
         </div>
       );
   }

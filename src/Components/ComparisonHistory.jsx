@@ -4,11 +4,12 @@ import { Table, DropdownButton, Dropdown } from "react-bootstrap";
 import * as api from "../spec/api";
 
 //1. get table from css bootstrap, needs css for placement (done-ish)
-//2. get request to get all of the comparison data from db(done)
-//3. set state with the data from the api (done)
-//4. add those data into the comparison table (done)
-//5. sort by most recent and oldest comparisons. (done)
-//6 sort out that time stamp data somehow <------ ????????????
+//2. make a get api function
+//3. get request to get all of the comparison data from db(done)
+//4. set state with the data from the api (done)
+//5. add those data from state into the comparison table (done)
+//6. add sort by most recent and oldest comparisons functionality by adding params to api calls. (done)
+//7. make a util function that will convert the time string from api to normal
 
 class ComparisonHistory extends Component {
   state = {
@@ -21,7 +22,6 @@ class ComparisonHistory extends Component {
 
   fetchComparisons = (order) => {
     api.getComparisons(order).then((comparisons) => {
-      console.log(comparisons);
       this.setState({ comparisons });
     });
   };
