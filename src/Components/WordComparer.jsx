@@ -65,7 +65,6 @@ class Comparison extends Component {
   }
 
   handleSecondaryClick = () => {
-    //needs a prevent default
     const { primaryWord, secondaryWord } = this.state;
     if (primaryWord && secondaryWord) {
       if (palindromeDetector(primaryWord[0], secondaryWord[0]) === true) {
@@ -112,7 +111,11 @@ class Comparison extends Component {
     if (isPalindrome)
       return (
         <h2 style={{ textAlign: "center" }}>
-          {primaryWord} is an Palindrome of {secondaryWord}
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          {primaryWord} is a Palindrome of {secondaryWord}
         </h2>
       );
 
@@ -123,7 +126,7 @@ class Comparison extends Component {
           <br></br>
           <br></br>
           <br></br>
-          {primaryWord} is not an Palindrome of {secondaryWord}
+          {primaryWord} is not a Palindrome of {secondaryWord}
         </h2>
       );
 
@@ -137,12 +140,15 @@ class Comparison extends Component {
                   <br></br>
                   <br></br>
                   <br></br>
-                  <h3>
-                    Input two words you want to compare to each other to find
-                    out whether they are anagram or palindrome of each other
-                  </h3>
-
+                  <h4>
+                    Input two different words to find out if they are an anagram
+                    of each other
+                  </h4>
                   <br></br>
+                  <h4>
+                    Input the same word twice to find out if they are a
+                    palindrome of each other
+                  </h4>
                   <br></br>
                   <form className="form-inline mb-4">
                     <input
@@ -170,7 +176,7 @@ class Comparison extends Component {
                       className="palindrome check"
                       onClick={this.handleSecondaryClick}
                     >
-                      Is it an palindrome?
+                      Is it a palindrome?
                     </Button>
                   </form>
                 </div>

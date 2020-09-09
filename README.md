@@ -1,19 +1,19 @@
 # Word Comparison
 
-This is my React powered frontend web application which will compare two different words, it will also get a history of comparison from [Backend REST API](https://wordcomparisonbe.herokuapp.com/api)
+This is my React powered frontend web application which will compare two different words, it will also provide a history of the comparison from [Backend REST API](https://wordcomparisonbe.herokuapp.com/api)
 
-The git repo of which can be fond [Here](https://github.com/ATCode97/fe-word-comparison)
+The git repo of which can be found [Here](https://github.com/ATCode97/fe-word-comparison)
 
 ## Available Functionality
 
-1. compare two word to see if there are an anagram of each other
-2. compare two word to see if there are an palindrome of each other
-3. view a list of all words that been compared
-4. can sort the history of word comparison by most recent and the oldest
+1. ability to compare two different words to see if they are an anagram of each other
+2. ability to compare the same word to see if they are a palindrome of each other
+3. ability to view a list of all words that have been compared
+4. ability to see the history of all word comparisons by the most recent and the oldest
 
 ## Getting Started
 
-These instruction will get you a copy of the project running on your local machine for development and testing purposes
+These instructions will give you a copy of the project running on your local machine for development and testing purposes
 
 Clone the repo and install the required dependencies:
 

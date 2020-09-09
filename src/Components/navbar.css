@@ -1,11 +1,12 @@
 .toolbar {
   width: 100%;
   position: fixed;
-  background: darkgray;
+  background: black;
   height: 56px;
   top: 0;
   left: 0;
   font-family: "Courier New";
+  font-size: 18px;
   z-index: 9999;
 }
 

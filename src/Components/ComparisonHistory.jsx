@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./comparisonhistory.css";
+
 import { convertTime } from "../spec/utils";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
